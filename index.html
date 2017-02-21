@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPG GAME</title>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+		<div class="row">
+			<div class="container col-xs-4 col-sm-4 col-md-4 col-lg-4" id="statusBar">
+				<h3>Healer</h3>
+				<div class="hp-bar"><a id="healerHpBar">0</a></div>
+				<div class="mp-bar"><a id="healerMpBar">0</a></div>
+				<div class="armor-bar"><a id="healerArmor">0</a></div>
+				<div id="healerSpeed"></div>
+				<button class="btn btn-danger btn-sm healer-attack healerAction">Attack</button>
+				<button class="btn btn-success btn-sm healer-magic healerAction">Magic</button>
+				<button class="btn btn-secundary btn-sm healer-guard healerAction">Guard</button>
+			</div>
+			<div class="container col-xs-4 col-sm-4 col-md-4 col-lg-4" id="statusBar">
+				<h3>Warrior</h3>
+				<div class="hp-bar"><a id="warriorHpBar">0</a></div>
+				<div class="mp-bar"><a>0</a></div>
+				<div class="armor-bar"><a id="warriorArmor">0</a></div>
+				<div id="warriorSpeed"></div>
+				<button class="btn btn-danger btn-sm warrior-attack warriorAction">Attack</button>
+				<button class="btn btn-secundary btn-sm warrior-guard warriorAction">Guard</button>
+			</div>
+			<div class="container col-xs-4 col-sm-4 col-md-4 col-lg-4" id="statusBar">
+				<h3>Mage</h3>
+				<div class="hp-bar"><a id="mageHpBar">0</a></div>
+				<div class="mp-bar"><a id="mageMpBar">0</a></div>
+				<div class="armor-bar"><a id="mageArmor">0</a></div>
+				<div id="mageSpeed"></div>
+				<button class="btn btn-danger btn-sm mage-attack mageAction">Attack</button>
+				<button class="btn btn-primary btn-sm mage-magic mageAction">Magic</button>
+				<button class="btn btn-secundary btn-sm mage-guard mageAction">Guard</button>
+			</div>
+		</div>
+	<main class="container-fluid mainContent row">
+		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+			<div class="row container-fluid">
+				<section>
+					<h1 class="label label-success">Healer</h1>
+					<img src="assets/images/healer.stand.gif" id="healer">
+				</section>
+			</div>
+			<div class="row container-fluid">
+				<section>
+					<h1 class="label label-danger">Warrior</h1>
+					<img src="assets/images/warrior.stand.gif" id="warrior">
+				</section>
+			</div>
+			<div class="row container-fluid">
+				<section>
+					<h1 class="label label-primary">Mage</h1>
+					<img src="assets/images/mage.stand.gif" id="mage">
+				</section>
+			</div>
+		</div>
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+			<section>
+				<img src="assets/images/bahamut.gif" id="enemy">
+				<div class="hp-bar"><a id="enemyHpBar">0</a></div>
+				<div id="enemySpeed"></div>
+			</section>
+		</div>
+	</main>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
