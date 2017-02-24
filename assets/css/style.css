@@ -28,7 +28,7 @@ main {
 	margin: 5px auto 5px auto;
 }
 .armor-bar {
-	background-color: #C0C0C0;
+	background-color: #e60000;
 	border-radius: 20px;
 	text-align: center;
 	width: 80%;
@@ -71,6 +71,14 @@ main {
 	margin: 5px auto 5px auto;
 	width: 80%;
 	animation: timeFrame 8s ease-in-out 0s infinite normal forwards running;
+}	
+#enemySpecial {
+	background-color: orange;
+	border-radius: 20px;
+	padding:3px;
+	margin: 5px auto 5px auto;
+	width: 80%;
+	animation: timeFrame 30s ease-in-out 0s infinite normal forwards running;
 }			
 @keyframes timeFrame {
 	from {
@@ -100,5 +108,25 @@ main {
 	width: 50%;
 }
 #enemy {
-	width: 90%;
+	width: 600px;
+	height: auto;
+}
+#fireSpell {
+	position:absolute;
+	z-index:99;
+	bottom: 330px;
+    right: 430px;
+}
+#explosion {
+	position: absolute;
+	z-index: 99;
+	width: 200%;
+    right: 460px;
+}
+.img-responsive {
+	max-width: 100%;
+	height: auto;
+}
+#enemy-container {
+	height: 600px;
 }

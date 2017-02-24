@@ -12,30 +12,27 @@
 				<h3>Healer</h3>
 				<div class="hp-bar"><a id="healerHpBar">0</a></div>
 				<div class="mp-bar"><a id="healerMpBar">0</a></div>
-				<div class="armor-bar"><a id="healerArmor">0</a></div>
 				<div id="healerSpeed"></div>
 				<button class="btn btn-danger btn-sm healer-attack healerAction">Attack</button>
 				<button class="btn btn-success btn-sm healer-magic healerAction">Magic</button>
-				<button class="btn btn-secundary btn-sm healer-guard healerAction">Guard</button>
+				<button class="btn btn-info btn-sm healer-guard healerAction">Regen</button>
 			</div>
 			<div class="container col-xs-4 col-sm-4 col-md-4 col-lg-4" id="statusBar">
 				<h3>Warrior</h3>
 				<div class="hp-bar"><a id="warriorHpBar">0</a></div>
-				<div class="mp-bar"><a>0</a></div>
 				<div class="armor-bar"><a id="warriorArmor">0</a></div>
 				<div id="warriorSpeed"></div>
 				<button class="btn btn-danger btn-sm warrior-attack warriorAction">Attack</button>
-				<button class="btn btn-secundary btn-sm warrior-guard warriorAction">Guard</button>
+				<button class="btn btn-warning btn-sm warrior-guard warriorAction">Special</button>
 			</div>
 			<div class="container col-xs-4 col-sm-4 col-md-4 col-lg-4" id="statusBar">
 				<h3>Mage</h3>
 				<div class="hp-bar"><a id="mageHpBar">0</a></div>
 				<div class="mp-bar"><a id="mageMpBar">0</a></div>
-				<div class="armor-bar"><a id="mageArmor">0</a></div>
 				<div id="mageSpeed"></div>
 				<button class="btn btn-danger btn-sm mage-attack mageAction">Attack</button>
 				<button class="btn btn-primary btn-sm mage-magic mageAction">Magic</button>
-				<button class="btn btn-secundary btn-sm mage-guard mageAction">Guard</button>
+				<button class="btn btn-info btn-sm mage-guard mageAction">Regen</button>
 			</div>
 		</div>
 	<main class="container-fluid mainContent row">
@@ -59,11 +56,14 @@
 				</section>
 			</div>
 		</div>
-		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-			<section>
-				<img src="assets/images/bahamut.gif" id="enemy">
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 img-responsive">
+			<image class="img-responsive" id="explosion">
+			<section id="enemy-container">
+				<img src="assets/images/bahamut1.gif" id="enemy">
+				<img class="img-responsive" id="fireSpell">
 				<div class="hp-bar"><a id="enemyHpBar">0</a></div>
 				<div id="enemySpeed"></div>
+				<div id="enemySpecial"></div>
 			</section>
 		</div>
 	</main>
