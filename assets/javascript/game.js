@@ -25,6 +25,7 @@ var delay = 1000;
 var audio = new Audio('assets/sound/24.mp3');
 audio.loop = true;
 audio.play()
+
 // JavaScript function that wraps everything
 $(document).ready(function() {
 	//Return functions for all characters after they use a command
@@ -63,7 +64,16 @@ $(document).ready(function() {
 	}
 	function skeleton() {
 		$("#enemy").attr("src", "assets/images/skeleton.png")
-	}		
+	}	
+	function enemyWarrior() {
+		$("#enemyWarrior").removeAttr("class")
+	}
+	function enemyHealer() {
+		$("#enemyHealer").removeAttr("class")
+	}
+	function enemyMage() {
+		$("#enemyMage").removeAttr("class")
+	}	
 
 	//link hp, MP , armor to HTML
 	$("#healerHpBar").html(healer.hp);
@@ -245,6 +255,10 @@ $(document).ready(function() {
 		console.log(randomAttack);
 		if (randomAttack == "warrior") {
 			warrior.hp -= enemy.attack;
+			$("#enemyWarrior").attr("class","enemyWarrior");
+			setTimeout(enemyWarrior, 1500);
+			var audio = new Audio("assets/sound/knife.flac");
+			audio.play();
 			refresh();
 			if (warrior.hp <= 0) {
 				var i = classArray.indexOf("warrior"); //this will stop the enemy from attacking a dead body
@@ -257,6 +271,10 @@ $(document).ready(function() {
 		}
 		else if (randomAttack == "healer") {
 			healer.hp -= enemy.attack;
+			$("#enemyHealer").attr("class","enemyHealer");
+			setTimeout(enemyHealer, 1500);
+			var audio = new Audio("assets/sound/knife.flac");
+			audio.play();
 			refresh();
 			if (healer.hp <= 0) {
 				var i = classArray.indexOf("healer"); //this will stop the enemy from attacking a dead body
@@ -269,6 +287,10 @@ $(document).ready(function() {
 		}
 		else if (randomAttack == "mage") {
 			mage.hp -= enemy.attack;
+			$("#enemyMage").attr("class","enemyMage");
+			setTimeout(enemyMage, 1500);
+			var audio = new Audio("assets/sound/knife.flac");
+			audio.play();
 			refresh();
 			if (mage.hp <= 0) {
 				var i = classArray.indexOf("mage"); //this will stop the enemy from attacking a dead body

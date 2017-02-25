@@ -9,7 +9,6 @@ body {
 main {
 	margin-top:200px;
 }
-
 .mainContent {
 	margin-top:50px;
 }
@@ -129,4 +128,19 @@ main {
 }
 #enemy-container {
 	height: 600px;
+}
+.enemyHealer {
+	background-image: url(../images/enemy.attack.png);
+	background-repeat: no-repeat;
+	background-size: 60% 100%;
+}
+.enemyWarrior {
+	background-image: url(../images/enemy.attack.png);
+	background-repeat: no-repeat;
+	background-size: 60% 100%;
+}
+.enemyMage {
+	background-image: url(../images/enemy.attack.png);
+	background-repeat: no-repeat;
+	background-size: 60% 100%;
 }
