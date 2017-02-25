@@ -7,7 +7,7 @@ var healer = {
 }
 var warrior = {
 	hp: 450,
-	attack: 600,
+	attack: 20,
 	rage: 0,
 }
 var mage = {
@@ -22,6 +22,9 @@ var enemy = {
 	special: 100,
 }
 var delay = 1000;
+var audio = new Audio('assets/sound/24.mp3');
+audio.loop = true;
+audio.play()
 // JavaScript function that wraps everything
 $(document).ready(function() {
 	//Return functions for all characters after they use a command
@@ -85,11 +88,18 @@ $(document).ready(function() {
 			$("#healerSpeed").toggleClass("healerSpeed");
 			$(".healerAction").attr("disabled","disabled");
 			$("#healer").attr("src","assets/images/healer.attack.gif");
+			var audio = new Audio("assets/sound/slash.wav");
+			audio.play();
 			enemy.hp -= healer.attack;
 			console.log(enemy.hp);
 			setTimeout(healerReturn, 1000);
 			setTimeout(healerButton, 10000);
 			setTimeout(healerSpeedReturn, 10000);
+			if (enemy.hp <= 0) {
+			$("#enemy").attr("src","assets/images/fire1.gif")
+				victory();
+				setTimeout(skeleton, 3000);
+			}
 			refresh();
 		}
 		else if ($(this).hasClass("healer-magic")) {
@@ -99,6 +109,8 @@ $(document).ready(function() {
 			warrior.hp += 100;
 			mage.hp += 100;
 			healer.mp -= 50;
+			var audio = new Audio("assets/sound/healmag.wav");
+			audio.play();
 			$("#healer").attr("src","assets/images/healer.cast.spell.gif")
 			console.log(healer.hp + " healer hp");
 			console.log(warrior.hp + " warrior hp");
@@ -118,6 +130,8 @@ $(document).ready(function() {
 			$(".healerAction").attr("disabled","disabled");
 			setTimeout(healerButton, 10000);
 			setTimeout(healerSpeedReturn, 10000);
+			var audio = new Audio("assets/sound/bluemag.wav");
+			audio.play();
 			refresh();
 		}
 	})
@@ -128,6 +142,8 @@ $(document).ready(function() {
 			$("#warriorSpeed").toggleClass("warriorSpeed");
 			$(".warriorAction").attr("disabled","disabled");
 			$("#warrior").attr("src","assets/images/warrior.attack.gif")
+			var audio = new Audio("assets/sound/slash.wav");
+			audio.play();
 			enemy.hp -= warrior.attack;
 			warrior.rage += 15;
 			console.log(enemy.hp);
@@ -136,19 +152,27 @@ $(document).ready(function() {
 			setTimeout(warriorSpeedReturn, 7000);
 			refresh();
 			if (enemy.hp <= 0) {
-			$("#enemy").attr("src","assets/images/fire1.gif")
-			setTimeout(skeleton, 3000);
+				$("#enemy").attr("src","assets/images/fire1.gif")
+				victory();
+				setTimeout(skeleton, 3000);
 			}
 		}
 		else if ($(this).hasClass("warrior-guard")) {
 			$("#warriorSpeed").toggleClass("warriorSpeed");
 			$(".warriorAction").attr("disabled","disabled");
 			$("#warrior").attr("src","assets/images/warrior.attack.gif")
+			var audio = new Audio("assets/sound/disapear.wav");
+			audio.play();
 			enemy.hp -= warrior.rage
 			warrior.rage = 0;
 			setTimeout(warriorReturn, 1000);
 			setTimeout(warriorButton, 7000);
 			setTimeout(warriorSpeedReturn, 7000);
+			if (enemy.hp <= 0) {
+				$("#enemy").attr("src","assets/images/fire1.gif")
+				victory();
+				setTimeout(skeleton, 3000);
+			}
 			refresh();
 		}
 
@@ -160,17 +184,30 @@ $(document).ready(function() {
 			$("#mageSpeed").toggleClass("mageSpeed");
 			$(".mageAction").attr("disabled","disabled");
 			$("#mage").attr("src","assets/images/mage.attack.gif")
+			var audio = new Audio("assets/sound/slash.wav");
+			audio.play();
 			enemy.hp -= mage.attack;
 			console.log(enemy.hp);
 			setTimeout(mageReturn, 1000);
 			setTimeout(mageButton, 8000);
 			setTimeout(mageSpeedReturn, 8000);
+			if (enemy.hp <= 0) {
+			$("#enemy").attr("src","assets/images/fire1.gif")
+			setTimeout(skeleton, 3000);
+			}
+			if (enemy.hp <= 0) {
+			$("#enemy").attr("src","assets/images/fire1.gif")
+				victory();
+				setTimeout(skeleton, 3000);
+			}
 			refresh();
 		}
 		else if ($(this).hasClass("mage-magic")) {
 			if (mage.mp > 0) {
 				$("#mageSpeed").toggleClass("mageSpeed");
 				$(".mageAction").attr("disabled","disabled");
+				var audio = new Audio("assets/sound/fire3.wav");
+				audio.play();
 				enemy.hp -= mage.fire
 				mage.mp -= 50;
 				console.log(enemy.hp + " enemy hp")
@@ -178,6 +215,11 @@ $(document).ready(function() {
 				$("#mage").attr("src","assets/images/mage.cast.gif")
 				$("#fireSpell").attr("src","assets/images/fire.spell.gif")
 				setTimeout(mageReturn, 1500);
+				if (enemy.hp <= 0) {
+					$("#enemy").attr("src","assets/images/fire1.gif")
+					victory();
+					setTimeout(skeleton, 3000);
+				}
 				refresh();
 				setTimeout(mageButton, 8000);
 				setTimeout(mageSpeedReturn, 8000);
@@ -187,6 +229,8 @@ $(document).ready(function() {
 		else if ($(this).hasClass("mage-guard")) {
 			$("#mageSpeed").toggleClass("mageSpeed");
 			$(".mageAction").attr("disabled","disabled");
+			var audio = new Audio("assets/sound/bluemag.wav");
+			audio.play();
 			mage.mp += 25;
 			console.log(mage.mp + " mage mp")
 			refresh();
@@ -240,6 +284,8 @@ $(document).ready(function() {
 		mage.hp -= enemy.special;
 		warrior.hp -= enemy.special;
 		healer.hp -= enemy.special;
+		var audio = new Audio("assets/sound/fire3.wav");
+		audio.play();
 		$("#explosion").attr("src","assets/images/explosion.gif")
 		setTimeout(explosion, 2000);
 		if (warrior.hp <= 0) {
@@ -258,7 +304,11 @@ $(document).ready(function() {
 	setInterval(enemyAttack, 8000);
 	setInterval(specialAttack, 30000);
 	//enemy command ends
-
+	function victory() {
+		$("#healer").attr("src","assets/images/healer.victory.gif");
+		$("#warrior").attr("src","assets/images/warrior.victory.gif");
+		$("#mage").attr("src","assets/images/mage.vicotry.gif");
+	}
 	//Game victory or lost criteria
 
 })
