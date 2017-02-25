@@ -17,25 +17,25 @@
 
 ## Tips
 
-# Warrior - 
+# Warrior
 - Attack : 20
 - Health : 450
 - Speed: 7s
 - Special: each time the warrior attach generates 15 rage. By using the special attack, the warrior will do damage depending on the amount of rage accumulated. note: rage will go back to 0 after used.
-# Healer -
+# Healer
 - Attack : 1
 - Health: 200
 - Speed: 10s
 - Magic: will increase health of all party members by 100. Uses 50 MP.
 - Regen: Will generate 25MP
-# Mage -
+# Mage
 - Attack: 1
 - Health: 200
 - Speed: 8s
 - Magic: Will cast fire to the enemy dealing 50 Damage. Uses 50 MP.
 - Regen: will generate 25MP
 
-# Enemy -
+# Enemy
  - Attack: 100
  - Health: 600
  - Speed: 8s
